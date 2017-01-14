@@ -1,3 +1,5 @@
 .Card {
-  background-color: blue;
+  width: 60vmin;
+  height: 80vmin;
+  border: 1px solid blue;
 }
