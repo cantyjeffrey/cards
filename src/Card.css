@@ -41,3 +41,13 @@
   /*border: 1px solid blue;*/
   display: none;
 }
+
+/*
+  TODO: Placeholder image for working with card,
+  wouldn't normally directly style an element:
+*/
+.Card svg {
+  width: 60%;
+  height: auto;
+  flex: 0 1 auto;
+}
