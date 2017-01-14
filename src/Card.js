@@ -5,7 +5,17 @@ class Card extends Component {
   render() {
     return (
       <div className="Card">
-        
+        <div className="CardContainer">
+          <div className="CardBack">
+            <span>Back</span>
+          </div>
+          <div className="CardPage">
+            <span>Page</span>
+          </div>
+          <div className="CardFront">
+            <span>Front</span>
+          </div>
+        </div>
       </div>
     );
   }
