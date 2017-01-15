@@ -1,11 +1,35 @@
 import React, { Component } from 'react';
+import Swipeable from 'react-swipeable';
 import CSSModules from 'react-css-modules';
 import styles from './Card.css';
 
 class Card extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      deltaX: 0,
+      deltaY: 0,
+      absX: 0,
+      absY: 0,
+      velocity: 0
+    }
+    this.handleSwipeAction = this.handleSwipeAction.bind(this);
+  }
+  handleSwipeAction(event, deltaX, deltaY, absX, absY, velocity) {
+    console.log('handleSwipeAction', event);
+    this.setState({
+      deltaX, deltaY, absX, absY, velocity
+    })
+  }
   render() {
+    const { deltaX, deltaY, absX, absY, velocity } = this.state
+
     return (
-      <div styleName="Card">
+      <Swipeable
+        styleName="Card"
+        trackMouse={true}
+        onSwiping={this.handleSwipeAction}
+      >
         <div styleName="CardContainer">
           <div styleName="CardBack">
             <span>Back</span>
@@ -23,7 +47,14 @@ class Card extends Component {
             </svg>
           </div>
         </div>
-      </div>
+        <ul styleName="CardDebug">
+          <li><strong>deltaX</strong>{deltaX}</li>
+          <li><strong>deltaY</strong>{deltaY}</li>
+          <li><strong>absX</strong>{absX}</li>
+          <li><strong>absY</strong>{absY}</li>
+          <li><strong>velocity</strong>{velocity}</li>
+        </ul>
+      </Swipeable>
     );
   }
 }
